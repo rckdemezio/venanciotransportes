@@ -89,4 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('visible');
     }, 200);
   });
+
+  /* ==========================================
+     6. Inicialização dos Ícones (Lucide)
+     ========================================== */
+  lucide.createIcons();
 });
