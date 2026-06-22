@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venâncio Transportes – Transporte no Ceará e para todo o Brasil</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --dark: #1A2233;
+      --orange: #F5A623;
+      --orange-dark: #D4890A;
+      --white: #fff;
+      --gray-bg: #F4F5F7;
+      --text-dark: #1A2233;
+      --text-muted: #6B7280;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      overflow-x: hidden
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    /* HEADER */
+    #header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--dark);
+      transition: box-shadow .3s
+    }
+
+    #header.scrolled {
+      box-shadow: 0 2px 20px rgba(0, 0, 0, .4)
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px
+    }
+  /* CONTATO/FOOTER */
+  .contato{background:#F0F2F5;padding:70px 2rem 0}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--white)
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--orange);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0
+    }
+
+    .logo-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--dark)
+    }
+
+    .logo-text {
+      line-height: 1.15
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: .65rem;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem
+    }
+
+    nav a {
+      color: rgba(255, 255, 255, .85);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      transition: color .2s
+    }
+
+    nav a:hover {
+      color: var(--orange)
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .82rem;
+      padding: .6rem 1.2rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      transition: background .2s, transform .15s
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px)
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .82rem;
+      padding: .6rem 1.4rem;
+      border-radius: 6px;
+      border: 2px solid rgba(255, 255, 255, .7);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      transition: all .2s
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, .08)
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all .3s
+    }
+
+    .mobile-nav {
+      display: none;
+      background: var(--dark);
+      padding: 1rem 2rem 1.5rem;
+      flex-direction: column;
+      gap: 1rem
+    }
+
+    .mobile-nav a {
+      color: rgba(255, 255, 255, .85);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    .mobile-nav .btn-primary {
+      margin-top: .5rem;
+      justify-content: center
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--dark);
+      min-height: 560px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 80px 2rem 60px;
+      position: relative;
+      z-index: 2
+    }
+
+    .hero-content {
+      max-width: 580px
+    }
+
+    .hero-content h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1rem
+    }
+
+    .hero-content h1 span {
+      color: var(--orange)
+    }
+
+    .hero-content p {
+      color: rgba(255, 255, 255, .75);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 2rem
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px
+    }
+
+    .hero-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1
+    }
+
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, var(--dark) 10%, rgba(26, 34, 51, 0.7) 45%, transparent 100%);
+      pointer-events: none
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+      display: block
+    }
+
+    /* DIFERENCIAIS */
+    .diferenciais {
+      background: #141c2b;
+      padding: 2rem
+    }
+
+    .dif-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem
+    }
+
+    .dif-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 1.2rem
+    }
+
+    .dif-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .dif-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--orange)
+    }
+
+    .dif-text h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 4px
+    }
+
+    .dif-text p {
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .55);
+      line-height: 1.5
+    }
+
+    /* DISTRIBUIDORES */
+    .distribuidores {
+      padding: 80px 2rem;
+      background: var(--white)
+    }
+
+    .dist-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr 1fr;
+      gap: 3rem;
+      align-items: center
+    }
+
+    .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: .6rem
+    }
+
+    .dist-left h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--dark)
+    }
+
+    .dist-left p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-size: .95rem
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--dark)
+    }
+
+    .check-list li svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--orange);
+      flex-shrink: 0
+    }
+
+    .map-wrap {
+      display: flex;
+      justify-content: center
+    }
+
+    .dist-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem
+    }
+
+    .atuacao-card {
+      background: var(--gray-bg);
+      border-radius: 10px;
+      padding: 1.5rem
+    }
+
+    .atuacao-card .pin-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .8rem
+    }
+
+    .atuacao-card .pin-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--white)
+    }
+
+    .atuacao-card h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .5rem;
+      color: var(--dark)
+    }
+
+    .atuacao-card p {
+      font-size: .85rem;
+      color: var(--text-muted);
+      line-height: 1.6
+    }
+
+    /* SERVIÇOS */
+    .servicos {
+      padding: 80px 2rem;
+      background: var(--gray-bg)
+    }
+
+    .sec-title {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--dark);
+      margin-bottom: .5rem
+    }
+
+    .sec-line {
+      width: 48px;
+      height: 3px;
+      background: var(--orange);
+      margin: 0 auto 3rem
+    }
+
+    .srv-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem
+    }
+
+    .srv-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform .25s, box-shadow .25s
+    }
+
+    .srv-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .1)
+    }
+
+    .srv-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .srv-icon svg {
+      width: 60px;
+      height: 60px
+    }
+
+    .srv-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: .7rem;
+      color: var(--dark)
+    }
+
+    .srv-card p {
+      font-size: .82rem;
+      color: var(--text-muted);
+      line-height: 1.6
+    }
+
+    /* BANNER BRASIL */
+    .banner-brasil {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      min-height: 450px
+    }
+
+    .bb-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 80px 2rem;
+      position: relative;
+      z-index: 2
+    }
+
+    .bb-left {
+      max-width: 580px
+    }
+
+    .bb-left h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: .3rem
+    }
+
+    .bb-left h2 span {
+      color: var(--orange)
+    }
+
+    .bb-left p {
+      color: rgba(255, 255, 255, .75);
+      line-height: 1.7;
+      margin: .8rem 0 1.8rem;
+      font-size: 1rem;
+      max-width: 420px
+    }
+
+    .bb-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1
+    }
+
+    .bb-img::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, var(--dark) 10%, rgba(26, 34, 51, 0.7) 40%, transparent 100%);
+      pointer-events: none
+    }
+
+    .bb-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block
+    }
+
+    
+
+    .contato-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr 1fr;
+      gap: 3rem;
+      padding-bottom: 60px
+    }
+
+    .contato-col h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--dark);
+      margin-bottom: 1.2rem
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: .9rem;
+      font-size: .9rem;
+      color: var(--dark);
+      font-weight: 600
+    }
+
+    .contact-item svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0
+    }
+
+    .contact-item .wa {
+      fill: #25D366
+    }
+
+    .contact-item .ph {
+      fill: var(--orange)
+    }
+
+    .contact-item .pin {
+      fill: var(--orange)
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px
+    }
+
+    .contato input,
+    .contato textarea {
+      width: 100%;
+      padding: .65rem .9rem;
+      border: 1.5px solid #D1D5DB;
+      border-radius: 6px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: .88rem;
+      background: var(--white);
+      color: var(--dark);
+      outline: none;
+      transition: border-color .2s
+    }
+
+    .contato input:focus,
+    .contato textarea:focus {
+      border-color: var(--orange)
+    }
+
+    .contato textarea {
+      height: 100px;
+      resize: none;
+      margin-bottom: 10px;
+      display: block
+    }
+
+    .btn-enviar {
+      width: 100%;
+      background: var(--orange);
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .85rem;
+      padding: .8rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background .2s
+    }
+
+    .btn-enviar:hover {
+      background: var(--orange-dark)
+    }
+
+    .btn-wa {
+      background: var(--orange);
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .85rem;
+      padding: .8rem 1.2rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background .2s;
+      margin-top: .6rem
+    }
+
+    .btn-wa:hover {
+      background: var(--orange-dark)
+    }
+
+    .fale-text {
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: .9rem;
+      margin-bottom: .3rem
+    }
+
+    footer{
+    background:#101827;
+    color:#fff;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 30px 40px;
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1.2fr;
+    gap:60px;
+}
+
+.footer-logo img{
+    width:180px;
+    margin-bottom:20px;
+}
+
+.footer-description{
+    color:rgba(255,255,255,.65);
+    line-height:1.8;
+    max-width:350px;
+}
+
+.footer-col h4{
+    font-family:'Montserrat',sans-serif;
+    color:#F5A623;
+    margin-bottom:20px;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.footer-links{
+    list-style:none;
+}
+
+.footer-links li{
+    margin-bottom:12px;
+}
+
+.footer-links a{
+    color:rgba(255,255,255,.7);
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#F5A623;
+    padding-left:6px;
+}
+
+.footer-contact p{
+    color:rgba(255,255,255,.7);
+    margin-bottom:12px;
+}
+
+.footer-social{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+.footer-social a{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#1A2233;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s;
+}
+
+.footer-social a:hover{
+    background:#F5A623;
+    transform:translateY(-5px);
+}
+
+.footer-social svg{
+    width:20px;
+    height:20px;
+    fill:white;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    padding:20px;
+    color:rgba(255,255,255,.45);
+    font-size:.85rem;
+}
+
+@media(max-width:900px){
+
+    .footer-container{
+        grid-template-columns:1fr;
+        text-align:center;
+        gap:40px;
+    }
+
+    .footer-description{
+        max-width:100%;
+    }
+
+    .footer-social{
+        justify-content:center;
+    }
+
+}
+
+
+    .social-links {
+      display: flex;
+      gap: 1rem
+    }
+
+    .social-links a {
+      color: rgba(255, 255, 255, .5);
+      transition: color .2s
+    }
+
+    .social-links a:hover {
+      color: var(--orange)
+    }
+
+    .social-links svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor
+    }
+
+    /* WhatsApp Float */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, .5);
+      transition: transform .2s
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1)
+    }
+
+    .wa-float svg {
+      width: 30px;
+      height: 30px;
+      fill: var(--white)
+    }
+
+    /* ANIMAÇÕES */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    /* RESPONSIVO */
+    @media(max-width:900px) {
+
+      nav,
+      .btn-primary.header-cta {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .mobile-nav.open {
+        display: flex
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr
+      }
+
+      .hero-img {
+        display: none
+      }
+
+      .hero-content h1 {
+        font-size: 2rem
+      }
+
+      .dif-inner {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .dist-inner {
+        grid-template-columns: 1fr
+      }
+
+      .srv-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .bb-inner {
+        grid-template-columns: 1fr
+      }
+
+      .bb-right {
+        display: none
+      }
+
+      .contato-inner {
+        grid-template-columns: 1fr
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: .8rem;
+        text-align: center
+      }
+    }
+
+    @media(max-width:520px) {
+      .dif-inner {
+        grid-template-columns: 1fr
+      }
+
+      .srv-grid {
+        grid-template-columns: 1fr
+      }
+
+      .form-row {
+        grid-template-columns: 1fr
+      }
+
+      .hero-content h1 {
+        font-size: 1.7rem
+      }
+
+      .dist-left h2 {
+        font-size: 1.7rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <img src="./images/logo-principal.png" alt="VENÂNCIO Transportes" width="100">
+        <div class="logo-text">VENÂNCIO<span>Transportes</span></div>
+      </a>
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#distribuidores">Para Distribuidores</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a href="https://wa.me/558888132803" class="btn-primary header-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+          <path
+            d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.119 1.532 5.845L.056 23.945l6.235-1.634A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.004-1.368l-.36-.214-3.696.97.988-3.611-.235-.37A9.815 9.815 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.418 0 9.818 4.4 9.818 9.818 0 5.418-4.4 9.818-9.818 9.818z" />
+        </svg>
+        Solicitar Orçamento
+      </a>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre Nós</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#distribuidores">Para Distribuidores</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/558888132803" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+          <path
+            d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.119 1.532 5.845L.056 23.945l6.235-1.634A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.004-1.368l-.36-.214-3.696.97.988-3.611-.235-.37A9.815 9.815 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.418 0 9.818 4.4 9.818 9.818 0 5.418-4.4 9.818-9.818 9.818z" />
+        </svg>
+        Solicitar Orçamento
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-img">
+      <img src="images/hero.png" alt="Caminhão Venâncio Transportes" />
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content fade-up">
+        <h1>Transporte no Ceará e<br><span>para todo o Brasil</span></h1>
+        <p>Especialistas em distribuição e transporte de cargas grandes com segurança e agilidade.</p>
+        <div class="hero-btns">
+          <a href="https://wa.me/558888132803" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.119 1.532 5.845L.056 23.945l6.235-1.634A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.004-1.368l-.36-.214-3.696.97.988-3.611-.235-.37A9.815 9.815 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.418 0 9.818 4.4 9.818 9.818 0 5.418-4.4 9.818-9.818 9.818z" />
+            </svg>
+            Solicitar Orçamento
+          </a>
+          <a href="#servicos" class="btn-outline">Conhecer Serviços →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais">
+    <div class="dif-inner">
+      <div class="dif-item fade-up">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2L3 7v5c0 5.25 3.75 10.17 9 11.33C17.25 22.17 21 17.25 21 12V7L12 2zm0 4l6 3.27V12c0 3.54-2.4 6.86-6 7.93C8.4 18.86 6 15.54 6 12V9.27L12 6z" />
+          </svg>
+        </div>
+        <div class="dif-text">
+          <h4>Segurança</h4>
+          <p>Sua carga protegida do início ao fim</p>
+        </div>
+      </div>
+      <div class="dif-item fade-up">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
+          </svg>
+        </div>
+        <div class="dif-text">
+          <h4>Pontualidade</h4>
+          <p>Entregas no prazo com compromisso</p>
+        </div>
+      </div>
+      <div class="dif-item fade-up">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+          </svg>
+        </div>
+        <div class="dif-text">
+          <h4>Atendimento</h4>
+          <p>Atendimento rápido e humanizado</p>
+        </div>
+      </div>
+      <div class="dif-item fade-up">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M11 13H6l7-11v7h5l-7 11z" />
+          </svg>
+        </div>
+        <div class="dif-text">
+          <h4>Confiança</h4>
+          <p>Parceria sólida com nossos clientes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISTRIBUIDORES -->
+  <section class="distribuidores" id="distribuidores">
+    <div class="dist-inner">
+      <div class="dist-left fade-up">
+        <div class="eyebrow">Contratos</div>
+        <h2>Soluções para Distribuidores</h2>
+        <p>Atendemos distribuidores com rotas fixas e entregas frequentes, garantindo eficiência e confiança.</p>
+        <ul class="check-list">
+          <li>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5l-4.5-4.5 1.41-1.41L10 13.67l7.09-7.09 1.41 1.41L10 16.5z" />
+            </svg>
+            Rotas fixas
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5l-4.5-4.5 1.41-1.41L10 13.67l7.09-7.09 1.41 1.41L10 16.5z" />
+            </svg>
+            Entregas frequentes
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5l-4.5-4.5 1.41-1.41L10 13.67l7.09-7.09 1.41 1.41L10 16.5z" />
+            </svg>
+            Agilidade e segurança
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5l-4.5-4.5 1.41-1.41L10 13.67l7.09-7.09 1.41 1.41L10 16.5z" />
+            </svg>
+            Parceria de longo prazo
+          </li>
+        </ul>
+      </div>
+      <div class="map-wrap fade-up">
+        <img src="images/mapa.png" alt="Mapa de atuação no Ceará" style="max-width: 100%; height: auto;" />
+      </div>
+      <div class="dist-right fade-up">
+        <div class="atuacao-card">
+          <div class="pin-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </div>
+          <h4>Atuação no Interior do Ceará</h4>
+          <p>Atuação forte no interior do Ceará com rotas estratégicas para distribuição.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="servicos" id="servicos">
+    <div style="max-width:1200px;margin:0 auto;padding:0 2rem">
+      <h2 class="sec-title">Nossos Serviços</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card fade-up">
+        <div class="srv-icon">
+          <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="18" width="50" height="26" rx="4" fill="#1A2233" />
+            <rect x="55" y="26" width="18" height="18" rx="3" fill="#1A2233" />
+            <circle cx="18" cy="46" r="7" fill="#F5A623" stroke="#fff" stroke-width="2" />
+            <circle cx="47" cy="46" r="7" fill="#F5A623" stroke="#fff" stroke-width="2" />
+            <circle cx="65" cy="46" r="5" fill="#F5A623" stroke="#fff" stroke-width="2" />
+            <rect x="8" y="6" width="16" height="4" rx="2" fill="#F5A623" />
+            <line x1="20" y1="8" x2="8" y2="8" stroke="#F5A623" stroke-width="2" />
+            <path d="M30 8 L45 8" stroke="#F5A623" stroke-width="2" stroke-dasharray="4 3" />
+          </svg>
+        </div>
+        <h3>Distribuição para Empresas</h3>
+        <p>Entregas eficientes no Ceará com rotas programadas.</p>
+      </div>
+      <div class="srv-card fade-up">
+        <div class="srv-icon">
+          <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="16" width="58" height="28" rx="4" fill="#1A2233" />
+            <rect x="60" y="22" width="16" height="22" rx="3" fill="#1A2233" />
+            <circle cx="16" cy="46" r="7" fill="#F5A623" stroke="#fff" stroke-width="2" />
+            <circle cx="46" cy="46" r="7" fill="#F5A623" stroke="#fff" stroke-width="2" />
+            <circle cx="66" cy="46" r="5" fill="#F5A623" stroke="#fff" stroke-width="2" />
+            <rect x="62" y="24" width="12" height="10" rx="1" fill="#F5A623" opacity=".4" />
+          </svg>
+        </div>
+        <h3>Transporte de Cargas Grandes</h3>
+        <p>Estrutura completa para cargas de grande porte e alto volume.</p>
+      </div>
+      <div class="srv-card fade-up">
+        <div class="srv-icon">
+          <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="42" r="8" fill="#F5A623" />
+            <circle cx="60" cy="18" r="8" fill="#F5A623" />
+            <path d="M28 38 Q40 10 52 18" stroke="#1A2233" stroke-width="3" stroke-dasharray="6 4" fill="none" />
+            <circle cx="20" cy="42" r="4" fill="#fff" />
+            <circle cx="60" cy="18" r="4" fill="#fff" />
+            <path d="M52 14 L60 18 L56 26" fill="#1A2233" />
+          </svg>
+        </div>
+        <h3>Logística Regional</h3>
+        <p>Atuação forte no interior do Ceará com agilidade.</p>
+      </div>
+      <div class="srv-card fade-up">
+        <div class="srv-icon">
+          <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Mapa Brasil simplificado -->
+            <path d="M25,8 L38,6 L52,10 L60,20 L62,32 L58,42 L52,50 L44,54 L34,52 L24,46 L16,36 L14,24 L18,14 Z"
+              fill="#1A2233" />
+            <circle cx="40" cy="30" r="5" fill="#F5A623" />
+            <path d="M40 25 L40 14" stroke="#F5A623" stroke-width="2" />
+            <circle cx="40" cy="12" r="4" fill="#F5A623" />
+          </svg>
+        </div>
+        <h3>Entregas Interestaduais</h3>
+        <p>Levamos sua carga para diversos estados do Brasil.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER BRASIL -->
+  <section class="banner-brasil" id="sobre">
+    <div class="bb-img">
+      <img src="images/hero-princ.png" alt="Caminhão Venâncio Transportes percorrendo o Brasil" />
+    </div>
+    <div class="bb-inner">
+      <div class="bb-left fade-up">
+        <h2>Transporte para<br><span>Todo o Brasil</span></h2>
+        <p>Realizamos transporte de cargas de grande porte para diversos estados com segurança, estrutura e agilidade.
+        </p>
+        <a href="#contato" class="btn-primary" style="display:inline-flex;margin-top:.5rem">Saiba Mais</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contato" id="contato">
+    <div class="contato-inner">
+      <div class="contato-col fade-up">
+        <h4>Entre em Contato</h4>
+        <div class="contact-item">
+          <svg class="wa" viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.119 1.532 5.845L.056 23.945l6.235-1.634A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.004-1.368l-.36-.214-3.696.97.988-3.611-.235-.37A9.815 9.815 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.418 0 9.818 4.4 9.818 9.818 0 5.418-4.4 9.818-9.818 9.818z" />
+          </svg>
+          (88) 8813-2803
+        </div>
+        <div class="contact-item">
+          <svg class="ph" viewBox="0 0 24 24">
+            <path
+              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg>
+          (88) 8813-2803
+        </div>
+        <div class="contact-item">
+          <svg class="pin" viewBox="0 0 24 24">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
+          venanciotransportes20@gmail.com
+        </div>
+      </div>
+      <div class="contato-col fade-up">
+        <h4>Envie sua Mensagem</h4>
+        <div class="form-row">
+          <input type="text" placeholder="Nome">
+          <input type="tel" placeholder="Telefone">
+        </div>
+        <textarea placeholder="Mensagem"></textarea>
+        <button class="btn-enviar">
+          Enviar Mensagem
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+          </svg>
+        </button>
+      </div>
+      <div class="contato-col fade-up">
+        <h4>Fale Conosco</h4>
+        <p class="fale-text">Estamos prontos para atender você e sua empresa!</p>
+        <a href="https://wa.me/558888132803" class="btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.119 1.532 5.845L.056 23.945l6.235-1.634A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.004-1.368l-.36-.214-3.696.97.988-3.611-.235-.37A9.815 9.815 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.418 0 9.818 4.4 9.818 9.818 0 5.418-4.4 9.818-9.818 9.818z" />
+          </svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <div class="footer-logo">
+                <img src="./images/logo-principal.png" alt="Venâncio Transportes">
+            </div>
+
+            <p class="footer-description">
+                Especialistas em transporte e distribuição de cargas no Ceará e para todo o Brasil, com segurança, agilidade e compromisso.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Links Rápidos</h4>
+
+            <ul class="footer-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#distribuidores">Distribuidores</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contato</h4>
+
+            <div class="footer-contact">
+                <p>📍 Ceará - Brasil</p>
+                <p>📞 (88) 8813-2803</p>
+                <p>📱 (88) 9 8813-2803</p>
+                <p>✉ venanciotransportes20@gmail.com</p>
+            </div>
+
+            <div class="footer-social">
+
+                <a href="#">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                    </svg>
+                </a>
+
+                <a href="#">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="20" height="20" rx="5"/>
+                        <path fill="none" stroke="currentColor" stroke-width="2"
+                              d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"
+                              stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+
+                <a href="#">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.52 3.48A11.8 11.8 0 0012.04 0C5.4 0 0 5.4 0 12.04c0 2.12.56 4.18 1.64 6l-1.07 3.96 4.06-1.07A11.93 11.93 0 0012.04 24C18.68 24 24 18.6 24 12.04c0-3.2-1.24-6.22-3.48-8.56z"/>
+                    </svg>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Venâncio Transportes • Todos os direitos reservados.
+    </div>
+
+</footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/558888132803" class="wa-float" aria-label="Chamar no WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+      <path
+        d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.119 1.532 5.845L.056 23.945l6.235-1.634A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.004-1.368l-.36-.214-3.696.97.988-3.611-.235-.37A9.815 9.815 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.418 0 9.818 4.4 9.818 9.818 0 5.418-4.4 9.818-9.818 9.818z" />
+    </svg>
+  </a>
+
+  <script>
+    // Header scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10)
+    })
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('mobileNav').classList.toggle('open')
+    }
+    document.querySelectorAll('.mobile-nav a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'))
+    })
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'))
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }) }
+      })
+    })
+
+    // Fade-up on scroll
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
+    }, { threshold: .12 })
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el))
+
+    // Hero fade immediate
+    document.querySelectorAll('.hero .fade-up').forEach(el => {
+      setTimeout(() => el.classList.add('visible'), 200)
+    })
+  </script>
+</body>
+
+</html>
